@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="form">
+      <input type="text" id="name" placeholder="Enter your Name"/>
+      <input type="email" id="email" placeholder="Enter your Email" />
+      <input type="text" id="age" placeholder="Enter your Age" />
+      <button onclick="sendEmail()">SUMBIT</button>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "zOk4XseCkM0DX9gQd",
+        });
+      })();
+    </script>
+    <script>
+      function sendEmail() {
+        emailjs.send("service_ll86q4m", "template_pknsf6j", {
+          name: document.getElementById("name").value,
+          age: document.getElementById("age").value,
+          email: document.getElementById("email").value,
+        }).then(alert("Email sended"));
+      }
+    </script>
+  </body>
+</html>
